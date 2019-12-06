@@ -18,7 +18,7 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {  
-              "path": "./custom-webpack.config.js"  
+              "path": "./src/custom-webpack.config.js"  
             },
             "outputPath": "dist/ant-design-poc",
             "index": "src/index.html",
@@ -66,7 +66,7 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "customWebpackConfig": {  
-              "path": "./custom-webpack.config.js"  
+              "path": "./src/custom-webpack.config.js"  
             },
             "browserTarget": "ant-design-poc:build"
           },

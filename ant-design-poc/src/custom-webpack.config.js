@@ -27,6 +27,15 @@ module: {
       },
       {
         test: /\.scss$/,
+        use: {
+          loader: 'sass-loader',
+          options: {
+            sassOptions: {
+              indentedSyntax: true,
+              includePaths: ['./styles.scss']
+            }
+          }
+        },
         issuer: {
           exclude: /\.less$/,
         },
