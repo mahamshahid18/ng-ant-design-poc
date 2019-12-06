@@ -8,17 +8,12 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "sass"
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {  
-              "path": "./src/custom-webpack.config.js"  
+              "path": "./src/custom-webpack-2.config.js"  
             },
             "outputPath": "dist/ant-design-poc",
             "index": "src/index.html",
@@ -30,7 +25,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ng-zorro-antd/ng-zorro-antd.less"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -66,7 +62,7 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "customWebpackConfig": {  
-              "path": "./src/custom-webpack.config.js"  
+              "path": "./src/custom-webpack-2.config.js"  
             },
             "browserTarget": "ant-design-poc:build"
           },
@@ -142,5 +138,10 @@
       }
     }
   },
-  "defaultProject": "ant-design-poc"
+  "defaultProject": "ant-design-poc",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

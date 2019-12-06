@@ -1,3 +1,5 @@
+const AntdScssThemePlugin = require('antd-scss-theme-plugin');
+
 module: {
     rules: [
       {
@@ -7,8 +9,10 @@ module: {
           plugins: [
             ['import', { 
               "libraryName": "antd",
-              "libraryDirectory": "lib"
+              "libraryDirectory": "lib",
+              "style": true
             }],
+            new AntdScssThemePlugin('./styles.scss')
           ]
         },
       },
@@ -17,17 +21,17 @@ module: {
         use: [
           { loader: "style-loader" },
           { loader: "css-loader" },
-          { 
+          AntdScssThemePlugin.themify({ 
             loader: "less-loader",
             options: {
               javascriptEnabled: true
             }
-          }
+          })
         ]
       },
       {
         test: /\.scss$/,
-        use: {
+        use: AntdScssThemePlugin.themify({
           loader: 'sass-loader',
           options: {
             sassOptions: {
@@ -35,17 +39,17 @@ module: {
               includePaths: ['./styles.scss']
             }
           }
-        },
-        issuer: {
-          exclude: /\.less$/,
-        },
+        })
+        // issuer: {
+        //   exclude: /\.less$/,
+        // },
       },
-      {
-        test: /\.scss$/,
-        issuer: /\.less$/,
-        use: {
-          loader: './sass-to-less.js'
-        }
-      }
+      // {
+      //   test: /\.scss$/,
+      //   issuer: /\.less$/,
+      //   use: {
+      //     loader: './sass-to-less.js'
+      //   }
+      // }
     ]
   }
