@@ -15,8 +15,11 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {  
+              "path": "./custom-webpack.config.js"  
+            },
             "outputPath": "dist/ant-design-poc",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -60,8 +63,11 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
+            "customWebpackConfig": {  
+              "path": "./custom-webpack.config.js"  
+            },
             "browserTarget": "ant-design-poc:build"
           },
           "configurations": {

@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ant-design-poc';
+  size = 'large';
+  block = true;
 }
