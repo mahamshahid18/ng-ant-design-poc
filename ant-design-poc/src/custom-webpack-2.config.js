@@ -40,21 +40,21 @@ const config = {
     //     exclude: /node_modules/,
     //     loader: 'babel-loader',
     //   },
-      {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          },
-          AntdScssThemePlugin.themify({
-            loader: 'sass-loader',
-          }),
-        ],
-      },
+      // {
+      //   test: /\.scss$/,
+      //   exclude: /node_modules/,
+      //   use: [
+      //     {
+      //       loader: 'style-loader'
+      //     },
+      //     {
+      //       loader: 'css-loader'
+      //     },
+      //     AntdScssThemePlugin.themify({
+      //       loader: 'sass-loader',
+      //     }),
+      //   ],
+      // },
       {
         test: /\.less$/,
         use: [
